@@ -9,7 +9,7 @@ class Shelf extends Component {
       <div>
       {console.log(this.props.length)}
         <div className="bookshelf">
-          <h2 className="bookshelf-title">{shelvie}</h2>
+          <h2 className="bookshelf-title">Hi</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
               <li>
