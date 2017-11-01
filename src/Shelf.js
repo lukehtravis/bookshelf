@@ -5,7 +5,7 @@ class Shelf extends Component {
 
   render() {
     console.log(this.props);
-    let boogieman = this.props
+    let {boogieman} = this.props
     return (
       <div>
       {boogieman.map((shelvie) => (
