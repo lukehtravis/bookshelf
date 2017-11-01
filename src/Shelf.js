@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 
 class Shelf extends Component {
 
-console.log(this.props);
-
   render() {
+    console.log(this.props);
     return (
       <div className="bookshelf">
       <h2 className="bookshelf-title"></h2>
