@@ -6,7 +6,7 @@ class Shelf extends Component {
   render() {
     return (
       <div className="bookshelf">
-      <h2 className="bookshelf-title">{shelf}</h2>
+      <h2 className="bookshelf-title"></h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             <li>
