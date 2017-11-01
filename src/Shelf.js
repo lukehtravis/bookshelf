@@ -5,7 +5,7 @@ class Shelf extends Component {
 
   render() {
     console.log(this.props);
-    let shelves = this.prop.shelvesProp;
+    let shelves = this.props.shelvesProp;
     return (
       <div>
       {shelves.map((unit) => (
