@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 class Shelf extends Component {
 
   render() {
-    console.log(this.props);
+    console.log(this.props.shelves);
     return (
-      {console.log(this.props)}
+
       <div className="bookshelf">
       <h2 className="bookshelf-title"></h2>
         <div className="bookshelf-books">
