@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 class Shelf extends Component {
 
+console.log(this.props);
+
   render() {
     return (
       <div className="bookshelf">
