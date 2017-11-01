@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Book from './Book.js'
 // import * as BooksAPI from './BooksAPI'
 
 class Shelf extends Component {
@@ -7,19 +8,17 @@ class Shelf extends Component {
     console.log(this.props);
     let shelves = this.props.shelvesProp;
     return (
-      <div>
-      {shelves.map((unit, key) => (
+      <span>
+      {shelves.map((unit) => (
         <div className="bookshelf">
           <h2 className="bookshelf-title">{unit}</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
-              <li>
-              </li>
             </ol>
           </div>
         </div>
       ))}
-      </div>
+      </span>
     )
   }
 }
