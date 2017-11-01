@@ -7,7 +7,7 @@ class Shelf extends Component {
     console.log(this.props);
     let boogieman = this.props
     return (
-      {this.props.map((shelvie) => (
+      {boogieman.map((shelvie) => (
         <div className="bookshelf">
         <h2 className="bookshelf-title">{shelvie}</h2>
           <div className="bookshelf-books">
