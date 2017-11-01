@@ -7,7 +7,7 @@ class Shelf extends Component {
     console.log(this.props);
     return (
       <div>
-      {console.log(this.props.length)}
+      {console.log(this.props.shelvesProp.length)}
         <div className="bookshelf">
           <h2 className="bookshelf-title">Hi</h2>
           <div className="bookshelf-books">
