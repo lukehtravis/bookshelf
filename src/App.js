@@ -1,54 +1,36 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import ListContacts from './ListContacts'
-import CreateContact from './CreateContact'
-import * as ContactsAPI from './utils/ContactsAPI'
+import React from 'react'
+// import * as BooksAPI from './BooksAPI'
+import './App.css'
+import './Shelf.js'
 
-class App extends Component {
+class BooksApp extends React.Component {
   state = {
-    contacts: []
-  }
-  componentDidMount() {
-    ContactsAPI.getAll().then((contacts) => {
-      this.setState({ contacts })
-    })
-  }
-  removeContact = (contact) => {
-    this.setState((state) => ({
-      contacts: state.contacts.filter((c) => c.id !== contact.id)
-    }))
-
-    ContactsAPI.remove(contact)
-  }
-
-  createContact(contact) {
-    ContactsAPI.create(contact).then(contact => {
-      this.setState(state => ({
-        contacts: state.contacts.concat([ contact ])
-      }))
-    })
+    /**
+     * TODO: Instead of using this state variable to keep track of which page
+     * we're on, use the URL in the browser's address bar. This will ensure that
+     * users can use the browser's back and forward buttons to navigate between
+     * pages, as well as provide a good URL they can bookmark and share.
+     */
+    showSearchPage: false,
+    shelves: ['reading', 'read', 'to-read'],
   }
 
   render() {
     return (
-      <div>
-        <Route exact path='/' render={() => (
-          <ListContacts
-            onDeleteContact={this.removeContact}
-            contacts={this.state.contacts}
-          />
-        )}/>
-        <Route path='/create' render={({ history }) => (
-          <CreateContact
-            onCreateContact={(contact) => {
-              this.createContact(contact)
-              history.push('/')
-            }}
-          />
-        )}/>
+      <div className="app">
+        <div className="list-books">
+          <div className="list-books-title">
+            <h1>MyReads</h1>
+          </div>
+          <div className="list-books-content">
+            <div>
+              <Shelf shelvesProp={this.state.shelves} />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-export default App;
+export default BooksApp
