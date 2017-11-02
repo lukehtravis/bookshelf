@@ -34,12 +34,12 @@ class BooksApp extends React.Component {
           </div>
           <div className="list-books-content">
             {shelves.map((unit) => (
-              books.map((book) => (
+              books.map((book) => {
                 return (book.fetchName === unit.fetchName) ?
                   <div key={unit.fetchName} >
                     <Shelf books={book} shelvesProp={unit} />
                   </div>
-              ))
+              })
             ))}
           </div>
         </div>
