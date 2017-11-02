@@ -34,10 +34,10 @@ class BooksApp extends React.Component {
           </div>
           <div className="list-books-content">
             {shelves.map((unit) => (
-              books.map((book) => {
+              this.state.books.map((book) => {
                 return (book.fetchName === unit.fetchName) ?
                   <div key={unit.fetchName} >
-                    <Shelf bookProp={book} shelvesProp={unit} />
+                    <Shelf books={book} shelvesProp={unit} />
                   </div>
                : null })
             ))}
