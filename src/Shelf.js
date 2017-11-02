@@ -11,7 +11,7 @@ class Shelf extends Component {
       <span>
       {shelves.map((unit) => (
         <div className="bookshelf">
-          <h2 className="bookshelf-title">{unit}</h2>
+          <h2 className="bookshelf-title">{unit.outputName}</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
               <Book />
