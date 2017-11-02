@@ -13,13 +13,14 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false,
   };
-  let shelves = [
-    {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
-    {fetchName: 'read', outputName: "Read"},
-    {fetchName: 'wantToRead', outputName: "Want To Read"}
-  ]
 
   render() {
+    let shelves = [
+      {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
+      {fetchName: 'read', outputName: "Read"},
+      {fetchName: 'wantToRead', outputName: "Want To Read"}
+    ]
+    
     return (
       <div className="app">
         <div className="list-books">
