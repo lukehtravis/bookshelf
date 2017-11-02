@@ -12,6 +12,11 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
+    books: {
+      currentlyReading: [{title: "yay", photo: "weee", author: "shakes"}],
+      wantToRead: [{title: "ndkjga", photo: "weee", author: "shakes"}],
+      read: [{title: "yayboo", photo: "weee", author: "shakes"}]
+    }
   };
 
   render() {
@@ -20,7 +25,7 @@ class BooksApp extends React.Component {
       {fetchName: 'read', outputName: "Read"},
       {fetchName: 'wantToRead', outputName: "Want To Read"}
     ]
-    
+
     return (
       <div className="app">
         <div className="list-books">
@@ -29,9 +34,13 @@ class BooksApp extends React.Component {
           </div>
           <div className="list-books-content">
             {shelves.map((unit) => (
-            <div key={unit.fetchName} >
-              <Shelf shelvesProp={unit} />
-            </div>
+              books.map((book) => (
+                if (book.fetchName === unit.fetchName) {
+                  <div key={unit.fetchName} >
+                    <Shelf books={book} shelvesProp={unit} />
+                  </div>
+                }
+              ))
             ))}
           </div>
         </div>
