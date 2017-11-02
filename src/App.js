@@ -39,7 +39,7 @@ class BooksApp extends React.Component {
                   <div key={unit.fetchName} >
                     <Shelf books={book} shelvesProp={unit} />
                   </div>
-              })
+               : })
             ))}
           </div>
         </div>
