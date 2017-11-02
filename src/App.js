@@ -36,7 +36,7 @@ class BooksApp extends React.Component {
             {shelves.map((unit) => (
               books.map((book) => (
                 if (book.fetchName === unit.fetchName) {
-                  <div key={unit.fetchName} >
+                return  <div key={unit.fetchName} >
                     <Shelf books={book} shelvesProp={unit} />
                   </div>
                 }
