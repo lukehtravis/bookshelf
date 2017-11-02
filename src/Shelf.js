@@ -10,7 +10,7 @@ class Shelf extends Component {
     return (
       <span>
       {shelves.map((unit) => (
-        <div className="bookshelf">
+        <div key={unit.key} className="bookshelf">
           <h2 className="bookshelf-title">{unit.outputName}</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
