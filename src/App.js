@@ -12,7 +12,7 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-  },
+  };
   shelves = [
     {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
     {fetchName: 'read', outputName: "Read"},
