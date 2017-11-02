@@ -12,9 +12,11 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-    shelves: [{key: 1, fetchName: 'currentlyReading', outputName: 'Currently Reading'},
-              {key: 2, fetchName: 'read', outputName: "Read"},
-              {key: 3, fetchName: 'wantToRead', outputName: "Want To Read"}],
+    shelves: [
+      {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
+      {fetchName: 'read', outputName: "Read"},
+      {fetchName: 'wantToRead', outputName: "Want To Read"}
+    ],
   }
 
   render() {
