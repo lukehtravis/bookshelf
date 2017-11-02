@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false,
   };
-  shelves = [
+  let shelves = [
     {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
     {fetchName: 'read', outputName: "Read"},
     {fetchName: 'wantToRead', outputName: "Want To Read"}
