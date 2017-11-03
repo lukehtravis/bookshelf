@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false,
     books: {
-      currentlyReading: [{title: "yay", photo: "weee", author: "shakes"}],
+      currentlyReading: [{title: "yay", photo: "weee", author: "shakes"}, {title: "yay2", photo: "weee2", author: "shakes2"}],
       wantToRead: [{title: "ndkjga", photo: "weee", author: "shakes"}],
       read: [{title: "yayboo", photo: "weee", author: "shakes"}]
     },
