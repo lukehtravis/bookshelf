@@ -19,9 +19,9 @@ class BooksApp extends React.Component {
     }
   };
 
-  let bookProp = this.state.books;
-
   render() {
+    let bookProp = this.state.books;
+
     let shelves = [
       {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
       {fetchName: 'read', outputName: "Read"},
