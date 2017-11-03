@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import * as BooksAPI from './BooksAPI'
 
 class Books extends Component {
   render() {
+    let title = ""
+    let author = ""
+    this.props.allBooks.map((book) => {
+      title = book.title
+      author = book.author
+    })
     return (
       <li>
         <div className="book">
@@ -17,8 +24,8 @@ class Books extends Component {
               </select>
             </div>
           </div>
-          <div className="book-title">1776</div>
-          <div className="book-authors">David McCullough</div>
+          <div className="book-title">{title}</div>
+          <div className="book-authors">{author}</div>
         </div>
       </li>
     )
