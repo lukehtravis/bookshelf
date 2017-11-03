@@ -45,9 +45,9 @@ class BooksApp extends React.Component {
                         <Shelf books={book} shelvesProp={unit} />
                       </div>
                    : null })
-                 })}
+                 }
                 }
-              }
+              })}
           </div>
         </div>
       </div>
