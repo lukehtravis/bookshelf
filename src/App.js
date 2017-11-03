@@ -19,6 +19,8 @@ class BooksApp extends React.Component {
     }
   };
 
+  let bookProp = this.state.books;
+
   render() {
     let shelves = [
       {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
@@ -33,14 +35,14 @@ class BooksApp extends React.Component {
             <h1>MyReads</h1>
           </div>
           <div className="list-books-content">
-            {shelves.map((unit) => {
-              this.state.books.map((book) => {
+            {shelves.map((unit) => (
+              bookProp.map((book) => {
                 return (book.fetchName === unit.fetchName) ?
                   <div key={unit.fetchName} >
                     <Shelf books={book} shelvesProp={unit} />
                   </div>
                : null })
-            })}
+            ))}
           </div>
         </div>
       </div>
