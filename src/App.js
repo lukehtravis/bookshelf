@@ -1,5 +1,5 @@
 import React from 'react';
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css';
 import Shelf from './Shelf.js';
 
@@ -16,11 +16,16 @@ class BooksApp extends React.Component {
       currentlyReading: [{title: "yay", photo: "weee", author: "shakes"}],
       wantToRead: [{title: "ndkjga", photo: "weee", author: "shakes"}],
       read: [{title: "yayboo", photo: "weee", author: "shakes"}]
-    }
+    },
   };
 
-  render() {
+  componentDidMount() {
+  BooksAPI.getAll().then((booksAPI) => {
+    this.setState({ booksAPI })
+    console.log(this.state.booksAPI[0].authors[0]);
+  })};
 
+  render() {
     let shelves = [
       {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
       {fetchName: 'read', outputName: "Read"},
