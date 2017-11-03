@@ -36,7 +36,7 @@ class BooksApp extends React.Component {
           </div>
           <div className="list-books-content">
             {shelves.map((unit) => {
-              for (var bookCat in bookObj) {
+              for (var bookCat in bookProps) {
                 if (object.hasOwnProperty(bookCat)) {
                   bookArr = bookObj[bookCat]
                   bookArr.map((book) => {
