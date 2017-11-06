@@ -19,8 +19,6 @@ class BooksApp extends React.Component {
     },
   };
 
-
-
   componentDidMount() {
   BooksAPI.getAll().then((booksAPI) => {
     this.setState({ booksAPI })
@@ -31,13 +29,19 @@ class BooksApp extends React.Component {
     ))
   })};
 
+  assignBookToShelf(bookObj, shelfOfBook) {
+    this.setState(state => {
+      books: state.books[shelfOfBook].push(bookObj)
+    })
+  }
+
   render() {
     let shelves = [
       {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
       {fetchName: 'read', outputName: "Read"},
       {fetchName: 'wantToRead', outputName: "Want To Read"}
     ]
-
+    console.log(this.state.books)
     return (
       <div className="app">
         <div className="list-books">
@@ -47,7 +51,7 @@ class BooksApp extends React.Component {
           <div className="list-books-content">
             {shelves.map((unit) => {
              return  <div key={unit.fetchName} >
-                <Shelf books={this.state.books[unit.fetchName]} shelvesProp={unit} />
+                <Shelf books={this.state.books[unit.fetchName]} shelvesProp={unit} assignFunc={(bookObj, shelfOfBook) => {this.assignBookToShelf(bookObj, shelfOfBook)}} />
               </div>
             })}
           </div>
