@@ -13,16 +13,22 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false,
     books: {
-      currentlyReading: [{title: "yay", photo: "weee", author: "shakes"}, {title: "yay2", photo: "weee2", author: "shakes2"}],
-      wantToRead: [{title: "ndkjga", photo: "weee", author: "shakes"}],
-      read: [{title: "yayboo", photo: "weee", author: "shakes"}]
+      currentlyReading: [],
+      wantToRead: [],
+      read: []
     },
   };
+
+
 
   componentDidMount() {
   BooksAPI.getAll().then((booksAPI) => {
     this.setState({ booksAPI })
-    console.log(this.state.booksAPI[0].authors[0]);
+    booksAPI.map((book) => (
+      this.setState(state => {
+        books: state.books[book['shelf']].push(book)
+      })
+    ))
   })};
 
   render() {
