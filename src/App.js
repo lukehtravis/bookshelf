@@ -19,7 +19,7 @@ class BooksApp extends React.Component {
     },
   };
 
-  componentDidMount() {
+  componentWillMount() {
   BooksAPI.getAll().then((booksAPI) => {
     this.setState({ booksAPI })
     booksAPI.map((book) => (
@@ -29,9 +29,11 @@ class BooksApp extends React.Component {
     ))
   })};
 
-  assignBookToShelf(bookObj, shelfOfBook) {
+  assignBookToShelf(bookObj, newShelfOfBook) {
+    let oldShelf = bookObj.shelf
     this.setState(state => {
-      books: state.books[shelfOfBook].push(bookObj)
+      books: state.books[newShelfOfBook].push(bookObj)
+      books: state.books[oldShelf].filter(function(book) { return book.title !== bookObj.title });
     })
   }
 
@@ -41,7 +43,6 @@ class BooksApp extends React.Component {
       {fetchName: 'read', outputName: "Read"},
       {fetchName: 'wantToRead', outputName: "Want To Read"}
     ]
-    console.log(this.state.books)
     return (
       <div className="app">
         <div className="list-books">
