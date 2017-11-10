@@ -53,7 +53,7 @@ class BooksApp extends React.Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {want.map((book) => {
-                      return <Book assignFunc={this.moveBook} individualBook={book} />
+                      return <Book onMoveBook={this.moveBook} individualBook={book} />
                     })}
                   </ol>
                 </div>
@@ -65,7 +65,7 @@ class BooksApp extends React.Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {current.map((book) => {
-                      return <Book assignFunc={this.moveBook} individualBook={book} />
+                      return <Book onMoveBook={this.moveBook} individualBook={book} />
                     })}
                   </ol>
                 </div>
