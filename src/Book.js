@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 class Book extends Component {
 
   handleChange(e, book) {
-    let option = e.target.querySelectorAll('option[value="'+ e.target.value +'"]')
-    let elementToChange = option[0]
-    elementToChange.setAttribute('selected', true)
     this.props.onMoveBook(book, e.target.value)
   }
 

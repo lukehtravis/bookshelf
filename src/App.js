@@ -15,7 +15,7 @@ class BooksApp extends React.Component {
     books: [],
   };
 
-  componentWillMount() {
+  componentDidMount() {
   BooksAPI.getAll().then((books) => {
     this.setState({books})
   })};
@@ -30,15 +30,22 @@ class BooksApp extends React.Component {
    }
 
   render() {
-    let want = this.state.books.filter((book) => {
-      return book.shelf === "wantToRead"
-    })
-    let current = this.state.books.filter((book) => {
-      return book.shelf === "currentlyReading"
-    })
-    let read = this.state.books.filter((book) => {
-      return book.shelf === "read"
-    })
+
+    let want = []
+    let current = []
+    let read = []
+
+    for (let book of this.state.books) {
+      if (book.shelf == "wantToRead") {
+        want.push(book)
+      }
+      if (book.shelf == "currentlyReading") {
+        current.push(book)
+      }
+      if (book.shelf == "read") {
+        read.push(book)
+      }
+    }
 
     return (
       <div className="app">
