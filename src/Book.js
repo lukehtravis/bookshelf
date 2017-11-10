@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import AssignBookToShelf from './AssignBookToShelf.js'
 
 class Book extends Component {
 
