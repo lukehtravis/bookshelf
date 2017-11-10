@@ -7,7 +7,7 @@ class Book extends Component {
     let option = e.target.querySelectorAll('option[value="'+ e.target.value +'"]')
     let elementToChange = option[0]
     elementToChange.setAttribute('selected', true)
-    this.props.assignFunc(book, e.target.value)
+    this.props.onMoveBook(book, e.target.value)
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as BooksAPI from './BooksAPI'
+import Book from './Book.js'
 import './App.css';
-import Shelf from './Shelf.js';
 
 class BooksApp extends React.Component {
   state = {
@@ -12,37 +12,34 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-    books: {
-      currentlyReading: [],
-      wantToRead: [],
-      read: []
-    },
+    books: [],
   };
 
   componentWillMount() {
-  BooksAPI.getAll().then((booksAPI) => {
-    this.setState({ booksAPI })
-    booksAPI.map((book) => (
-      this.setState(state => {
-        books: state.books[book['shelf']].push(book)
-      })
-    ))
+  BooksAPI.getAll().then((books) => {
+    this.setState({books})
   })};
 
-  assignBookToShelf(bookObj, newShelfOfBook) {
-    let oldShelf = bookObj.shelf
-    this.setState(state => {
-      books: state.books[newShelfOfBook].push(bookObj)
-      books: state.books[oldShelf].filter(function(book) { return book.title !== bookObj.title });
-    })
-  }
+  moveBook = (book,value) => {
+     BooksAPI.update(book,value).then(() => {
+       book.shelf = value
+       this.setState(state => ({
+          books: state.books.filter(b => b.id !== book.id).concat(book) })
+       )
+     })
+   }
 
   render() {
-    let shelves = [
-      {fetchName: 'currentlyReading', outputName: 'Currently Reading'},
-      {fetchName: 'read', outputName: "Read"},
-      {fetchName: 'wantToRead', outputName: "Want To Read"}
-    ]
+    let want = this.state.books.filter((book) => {
+      return book.shelf === "wantToRead"
+    })
+    let current = this.state.books.filter((book) => {
+      return book.shelf === "currentlyReading"
+    })
+    let read = this.state.books.filter((book) => {
+      return book.shelf === "read"
+    })
+
     return (
       <div className="app">
         <div className="list-books">
@@ -50,11 +47,42 @@ class BooksApp extends React.Component {
             <h1>MyReads</h1>
           </div>
           <div className="list-books-content">
-            {shelves.map((unit) => {
-             return  <div key={unit.fetchName} >
-                <Shelf books={this.state.books[unit.fetchName]} shelvesProp={unit} assignFunc={(bookObj, shelfOfBook) => {this.assignBookToShelf(bookObj, shelfOfBook)}} />
+            <div className="wantToRead">
+              <div className="bookshelf">
+                <h2 className="bookshelf-title">Want To Read</h2>
+                <div className="bookshelf-books">
+                  <ol className="books-grid">
+                    {want.map((book) => {
+                      return <Book assignFunc={this.moveBook} individualBook={book} />
+                    })}
+                  </ol>
+                </div>
               </div>
-            })}
+            </div>
+            <div className="currentlyReading">
+              <div className="bookshelf">
+                <h2 className="bookshelf-title">Currently Reading</h2>
+                <div className="bookshelf-books">
+                  <ol className="books-grid">
+                    {current.map((book) => {
+                      return <Book assignFunc={this.moveBook} individualBook={book} />
+                    })}
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div className="read">
+              <div className="bookshelf">
+                <h2 className="bookshelf-title">Read</h2>
+                <div className="bookshelf-books">
+                  <ol className="books-grid">
+                    {read.map((book) => {
+                      return <Book onMoveBook={this.moveBook} individualBook={book} />
+                    })}
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
