@@ -1,7 +1,7 @@
 import React from 'react';
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
-import SearchForBook from 'SearchForBook.js'
+import SearchForBook from './SearchForBook.js'
 import './App.css';
 
 class BooksApp extends React.Component {
@@ -21,6 +21,10 @@ class BooksApp extends React.Component {
       this.setState({books})
     })
   };
+
+  goBack = () => {
+    this.setState({showSearchPage: false})
+  }
 
   moveBook = (book,value) => {
     BooksAPI.update(book,value).then(() => {
@@ -52,7 +56,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
       {this.state.showSearchPage ? (
-        <SearchForBook />
+        <SearchForBook onGoBack={this.goBack} />
       ) : (
         <div className="list-books">
           <div className="list-books-title">
