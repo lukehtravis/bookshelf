@@ -56,7 +56,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
       {this.state.showSearchPage ? (
-        <SearchForBook onGoBack={this.goBack} />
+        <SearchForBook onGoBack={this.goBack} stateProp={this.state.books} />
       ) : (
         <div className="list-books">
           <div className="list-books-title">
