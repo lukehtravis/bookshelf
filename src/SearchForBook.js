@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import escapeRegExp from 'escape-string-regexp'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
+import { Link } from 'react-router-dom'
 
 class SearchForBook extends Component {
 
@@ -26,7 +27,7 @@ class SearchForBook extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={() => this.backToMainPage()}>Close</a>
+          <Link to="/" className="close-search" onClick={() => this.backToMainPage()}>Close</Link>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.
