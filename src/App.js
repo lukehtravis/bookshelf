@@ -22,7 +22,6 @@ class BooksApp extends React.Component {
       this.setState(state => ({
         books: state.books.filter(b => b.id !== book.id).concat(book) })
       )
-      if (value === 'none') {console.log('alas')}
     })
    }
 

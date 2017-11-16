@@ -7,12 +7,14 @@ class Book extends Component {
   }
 
   render() {
+
     let thumbnail
     if ('imageLinks' in this.props.individualBook) {
       thumbnail = this.props.individualBook.imageLinks.thumbnail
     } else  {
       thumbnail = 'https://books.google.com/googlebooks/images/no_cover_thumb.gif'
     }
+
     return (
       <li>
         <div className="book">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import escapeRegExp from 'escape-string-regexp'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
 import { Link } from 'react-router-dom'
