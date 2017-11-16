@@ -7,14 +7,20 @@ class Book extends Component {
   }
 
   render() {
+    let thumbnail
+    if ('imageLinks' in this.props.individualBook) {
+      thumbnail = this.props.individualBook.imageLinks.thumbnail
+    } else  {
+      thumbnail = 'https://books.google.com/googlebooks/images/no_cover_thumb.gif'
+    }
     return (
       <li>
         <div className="book">
           <div className="book-top">
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.individualBook.imageLinks.thumbnail ? this.props.individualBook.imageLinks.thumbnail : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif'})` }}></div>
+            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})` }}></div>
             <div className="book-shelf-changer">
               <select onChange={(e) => this.handleChange(e, this.props.individualBook)}>
-                <option value="none" disabled>Move to...</option>
+                <option value="moveto" disabled>Move to...</option>
                 <option value="none">None</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="currentlyReading">Currently Reading</option>

@@ -11,28 +11,26 @@ class SearchForBook extends Component {
     searchedBooks: [],
   }
 
-  backToMainPage() {
-    this.props.onGoBack();
-  }
-
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
-    BooksAPI.search(this.state.query).then((searchedBooks) => {
+    BooksAPI.search(this.state.query, 20).then((searchedBooks) => {
       this.setState({searchedBooks})
+    }).catch((error) => {
+      this.setState({searchedBooks: []})
     })
   };
 
   render() {
-
+    let query = this.state.query
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to="/" className="close-search" onClick={() => this.backToMainPage()}>Close</Link>
+          <Link to="/" className="close-search">Close</Link>
           <div className="search-books-input-wrapper">
             <input
             type="text"
             placeholder="Search by title or author"
-            value={this.state.query}
+            value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
@@ -41,7 +39,7 @@ class SearchForBook extends Component {
           <ol className="books-grid">
             {
               this.state.searchedBooks.map((book) => {
-                return <Book  onMoveBook={this.props.onMoveBook} individualBook={book} />
+                return <Book key={book.id} onMoveBook={this.props.onMoveBook} individualBook={book} />
               })
             }
           </ol>
