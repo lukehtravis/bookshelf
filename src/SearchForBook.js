@@ -22,7 +22,6 @@ class SearchForBook extends Component {
   };
 
   render() {
-    let query = this.state.query
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -31,7 +30,7 @@ class SearchForBook extends Component {
             <input
             type="text"
             placeholder="Search by title or author"
-            value={query}
+            value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>

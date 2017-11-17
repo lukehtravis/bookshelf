@@ -8,13 +8,13 @@ import { Link, Route } from 'react-router-dom'
 class BooksApp extends React.Component {
   state = {
     books: [],
-  };
+  }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({books})
     })
-  };
+  }
 
   moveBook = (book,value) => {
     BooksAPI.update(book,value).then(() => {
@@ -22,8 +22,8 @@ class BooksApp extends React.Component {
       this.setState(state => ({
         books: state.books.filter(b => b.id !== book.id).concat(book) })
       )
-    })
-   }
+   })
+  }
 
   render() {
 
