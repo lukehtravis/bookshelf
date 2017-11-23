@@ -19,7 +19,7 @@ class Book extends Component {
       <li>
         <div className="book">
           <div className="book-top">
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})` }}></div>
+            <div className="book-cover" style={{ backgroundImage: `url(${thumbnail})` }}></div>
             <div className="book-shelf-changer">
               <select value={this.props.individualBook.shelf} onChange={(e) => this.handleChange(e, this.props.individualBook)}>
                 <option value="moveto" disabled>Move to...</option>
@@ -31,7 +31,7 @@ class Book extends Component {
             </div>
           </div>
           <div className="book-title">{this.props.individualBook.title}</div>
-          <div className="book-authors">{this.props.individualBook.author}</div>
+          <div className="book-authors">{this.props.individualBook.authors.length > 1 ? this.props.individualBook.authors.join(', ') : this.props.individualBook.authors}</div>
         </div>
       </li>
     )
