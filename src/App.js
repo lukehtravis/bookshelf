@@ -26,8 +26,7 @@ class BooksApp extends React.Component {
    })
   }
 
-  render() {
-
+  render() { 
     return (
       <div className="app">
         <Route path="/search" exact render={() => (
