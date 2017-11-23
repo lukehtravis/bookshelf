@@ -14,13 +14,19 @@ class SearchForBook extends Component {
     this.setState({ query: query.trim() })
     if (this.state.query !== '') {
       BooksAPI.search(this.state.query, 20).then((searchedBooks) => {
-        this.setState({searchedBooks})
+        let shelfCheckedBooks = searchedBooks.map(searchedBook => {
+          let bookFound = this.props.stateProp.find( book => book.id === searchedBook.id);
+          if(bookFound) {
+            searchedBook.shelf = bookFound.shelf;
+          }
+          return searchedBook;
+        });
+        this.setState({searchedBooks: shelfCheckedBooks})
       }).catch((error) => {
         this.setState({searchedBooks: []})
       })
     }
   };
-
   render() {
     return (
       <div className="search-books">
