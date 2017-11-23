@@ -15,7 +15,12 @@ class SearchForBook extends Component {
     if (this.state.query !== '') {
       BooksAPI.search(this.state.query, 20).then((searchedBooks) => {
         let shelfCheckedBooks = searchedBooks.map(searchedBook => {
-          let bookFound = this.props.stateProp.find( book => book.id === searchedBook.id);
+          let bookFound = {}
+          for (let i = 0; i < this.props.stateProp.length; i++) {
+            if (this.props.stateProp[i].id === searchedBook.id) {
+              bookFound = this.props.stateProp[i]
+            }
+          }
           if(bookFound) {
             searchedBook.shelf = bookFound.shelf;
           }
@@ -28,6 +33,7 @@ class SearchForBook extends Component {
     }
   };
   render() {
+    const {query} = this.state.query
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -36,7 +42,7 @@ class SearchForBook extends Component {
             <input
             type="text"
             placeholder="Search by title or author"
-            value={this.state.query}
+            value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
