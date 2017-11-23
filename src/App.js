@@ -8,7 +8,7 @@ import { Link, Route } from 'react-router-dom'
 class BooksApp extends React.Component {
   state = {
     books: [],
-    currentShelf: ['wantToRead', 'currentlyReading', 'read']
+    currentShelf: [{displayName: 'Want To Read', internalName: 'wantToRead'}, {displayName: 'Currently Reading', internalName: 'currentlyReading'}, {displayName: 'Read', internalName: 'read'}]
   }
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               {this.state.currentShelf.map((shelf) => {
-                return <Shelf key={shelf} shelfName={shelf} onMoveBook={this.moveBook} books={this.state.books} />
+                return <Shelf key={shelf.internalName} shelfName={shelf} onMoveBook={this.moveBook} books={this.state.books} />
               })}
             </div>
             <div className="open-search">
