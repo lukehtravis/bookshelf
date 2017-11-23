@@ -1,6 +1,12 @@
 # MyReads Project
 
-This is a bookshelf application to store books that are live in the BooksAPI.
+This is a bookshelf application to store books that live in the BooksAPI.  
+
+The following terms will play nicely with the search function:
+
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+
+Other terms may not work.
 
 To get started developing right away:
 
@@ -84,6 +90,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-Parts of template taken from Udacity and React Create App
+Front end html and css template taken from Udacity, as was BooksAPI.js
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
