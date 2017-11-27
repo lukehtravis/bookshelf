@@ -15,6 +15,8 @@ class Book extends Component {
       thumbnail = 'https://books.google.com/googlebooks/images/no_cover_thumb.gif'
     }
 
+    const {individualBook} = this.props.individualBook 
+
     return (
       <li>
         <div className="book">
