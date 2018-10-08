@@ -15,7 +15,7 @@ class Book extends Component {
       thumbnail = 'https://books.google.com/googlebooks/images/no_cover_thumb.gif'
     }
 
-    const {individualBook} = this.props.individualBook 
+    const {individualBook} = this.props.individualBook
 
     return (
       <li>
@@ -33,7 +33,7 @@ class Book extends Component {
             </div>
           </div>
           <div className="book-title">{this.props.individualBook.title}</div>
-          <div className="book-authors">{this.props.individualBook.authors.length > 1 ? this.props.individualBook.authors.join(', ') : this.props.individualBook.authors}</div>
+          <div className="book-authors">{this.props.individualBook.authors !== undefined && this.props.individualBook.authors.length > 1 ? this.props.individualBook.authors.join(', ') : this.props.individualBook.authors}</div>
         </div>
       </li>
     )
