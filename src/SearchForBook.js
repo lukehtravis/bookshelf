@@ -14,8 +14,8 @@ class SearchForBook extends Component {
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
     this.setState({books: this.props.stateProp})
+    this.setState({searchedBooks: []})
     BooksAPI.search(query,30).then((books) => {
-      console.log(books);
       if(!!books){
         if(books.length>0){
           let results = books.map((book) => {
